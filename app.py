@@ -40,6 +40,7 @@ def error_index(err_code):
     error = None
     action = None
     err_msg = None
+    repair_code = None
     repair = err_actions.get(err_code)
     if repair is None:
         error = "error code is not define in our error database. Check administrator."

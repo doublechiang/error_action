@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% block title %} Error Database {% endblock %}<br/><br/>
+
+<body>
+<form action={{ url_for('error_main') }} method="post">
+  <label>Enter Error Code here to Search:</label>
+    <input type="text" name="err_code"></input>
+    <input type="submit" value="Search"></input><br/>
+</form>
+<br/>
+<br/>
+
+{% if error %}
+  <b><p style="color:red">{{ error }} </p></b>
+{% endif %}
+
+{% if err_code %}
+<h3>Error Code</h3>
+{{ err_code }}, {{ err_msg }}
+<br/><br/>
+{% endif %}
+
+{% if action %}
+{% if repair_code %}
+<P>Repair Code </P> {{ repair_code }} </br>
+{% endif %}
+<h3 style="color:blue">Action</h3>
+
+{% for c in action %}
+{{ c | safe }}
+{% endfor %}
+
+{% endif %}
+
+</body>
+
+{% endblock %}
+
